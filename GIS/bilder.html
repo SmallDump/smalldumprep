@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/CSS/joint.css">
+    <link rel="stylesheet" href="assets/CSS/creator.css">
+</head>
+
+<body>
+    <nav>
+        <span class="title"><a class="copyright" title="prod. by Михаил Кононов и Илья Калентьев"href="https://vk.com/smail_dump">Схема тяговой подстанции</a></span>
+
+
+        <div class="SaveAndDownload">
+            <a id="todownload" class="savefile">Сохранить схему</a>
+            <label for="tostore" class="savefile">Загрузить схему</label>
+            <input type="file" id="tostore" class="myfile">
+        </div>
+    </nav>
+    <section class="main">
+
+        <div id="app">
+
+            <div id="sidebarContainer">
+                <div class="topNav">
+                    <span>Элементы</span>
+                    <button id="openbtn">☰</button>
+                </div>
+                <div id="toolbarbtn" class="toolbar-button">
+                    <span id="crtCont">Контейнер</span></div>
+                <div id="Sidebar" class="sidebar">
+                </div>
+            </div>
+            <div id="main">
+                <div id="kzclose" class="cl-btn-6">
+                    <div class="cl-btn-6-in">
+                        <div class="cl-btn-6-txt">Закрыть</div>
+                    </div>
+                </div>
+                <div id="ResultKZ">
+
+                    <div id="result2"></div>
+                </div>
+                <div id="infoCont"></div>
+                <div id="RaschetTP" style="display: flex;flex-direction: column;padding: 20px;">
+                    <span style="color:red;padding-bottom: 15px;">После расчётов появится кнопка скрытия результатов!</span>
+                    <div style="display: flex;flex-wrap: wrap;justify-content: space-evenly;">
+                        <button id="button2faza" class="buttonfaza">2-х фазный</button>
+                        <button id="button3faza" class="buttonfaza">3-х фазный</button>
+                    </div>
+                </div>
+                <div id="paper">
+                </div>
+                <div id="Tree" class="sidebar1" style="width:250px;">
+                    <div style="display: flex;justify-content: center;padding-top: 15px;">Дерево иерархии</div>
+                    <ul id="TreeUl" style="padding:0;"></ul>
+                </div>
+            </div>
+            <div id="Sidebar1">
+                <div class="topNav eleminfo">
+                    <div id="closeinfo" style="cursor:pointer;">x</div>
+                    <div id="TreeText">Информация об элементе:</div>
+                </div>
+                <div id="info" class="info"></div>
+            </div>
+
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <script src="assets/JS/lodash.js"></script>
+    <script src="assets/JS/backbone.js"></script>
+    <script src="assets/JS/joint.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/joint.shapes.container.js"></script>
+</body>
+
+</html>

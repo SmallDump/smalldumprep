@@ -1,0 +1,626 @@
+    /*обнуление стилей */
+    
+    html {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    body {
+        background: #fff;
+        font-family: "Lato", sans-serif;
+        padding: 0px;
+        margin: 0;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+    
+    .connecting {
+        cursor: grab !important;
+    }
+    
+    .toolbar-button {
+        outline: none;
+        width: 90%;
+        background: #F3F7F6;
+        border-top: 1px solid #E0E0E0;
+        border-bottom: 1px solid #E0E0E0;
+        text-align: center;
+        font-family: sans-serif;
+        font-size: 12px;
+        padding: 6px 12px;
+        letter-spacing: 0.25px;
+        color: #222222;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        margin: 0 2px;
+        opacity: 0;
+        &:hover {
+            background: #F7F8F9;
+        }
+    }
+    
+    a {
+        color: #fff;
+    }
+    
+    a:hover {
+        color: #fff;
+    }
+    
+    ul {
+        cursor: pointer;
+        user-select: none;
+    }
+    
+    .show::before {
+        content: "- ";
+    }
+    
+    li {
+        list-style-type: none;
+        cursor: pointer;
+        user-select: none;
+    }
+    
+    li.expand {
+        display: none;
+    }
+    
+    .hide::before {
+        content: "+";
+    }
+    
+    #infoCont {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        /* Центрируем и масштабируем в 0 само окно*/
+        background-color: #333333;
+        width: 400px;
+        height: 150px;
+        padding: 25px;
+        transition: 0.5s all;
+        border: 1px solid black;
+    }
+    
+    #infoCont.active {
+        transform: translate(-50%, -50%) scale(1);
+        /* Так же центрируем и плавно увеличиваем*/
+        transition: 0.5s all;
+        z-index: 1;
+        background-color: white;
+    }
+    
+    #RaschetTP {
+        display: flex;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        /* Центрируем и масштабируем в 0 само окно*/
+        background-color: #333333;
+        padding: 25px;
+        transition: 0.5s all;
+        border: 1px solid black;
+    }
+    
+    #RaschetTP.active {
+        transform: translate(-50%, -50%) scale(1);
+        /*Так же центрируем и плавно увеличиваем*/
+        transition: 0.5s all;
+        z-index: 1;
+        background-color: white;
+    }
+    
+    #ResultKZ {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 300px;
+        height: 150px;
+        transform: translate(-50%, -50%) scale(0);
+        /* Центрируем и масштабируем в 0 само окно*/
+        background-color: #333333;
+        padding: 25px;
+        transition: 0.5s all;
+        border: 1px solid black;
+    }
+    
+    #ResultKZ.active {
+        transform: translate(-50%, -50%) scale(1);
+        /* Так же центрируем и плавно увеличиваем*/
+        transition: 0.5s all;
+        z-index: 1;
+        background-color: white;
+    }
+    
+    #kzclose {
+        transform: translate(-50%, -50%) scale(0);
+        color: black;
+        float: right;
+        position: relative;
+        z-index: 1000;
+    }
+    
+    #kzclose.active {
+        transform: translate(-50%, -50%) scale(1);
+        /* Так же центрируем и плавно увеличиваем*/
+        transition: 0.5s all;
+    }
+    
+    .copyright {
+        text-decoration: none;
+    }
+    
+    .copyright:hover,
+    .copyright:active,
+    .copyright:focus {
+        cursor: default;
+    }
+    
+    .cl-btn-6 {
+        position: relative;
+        margin: 20px auto;
+        width: 20px;
+        top: 10px;
+        left: -280px;
+        cursor: pointer;
+    }
+    
+    .cl-btn-6-in {
+        width: inherit;
+        text-align: center;
+    }
+    
+    .cl-btn-6-txt {
+        font-size: 13px;
+        margin: 5px -25px;
+        line-height: 40px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: red;
+        transition: all .3s ease-in;
+        opacity: 0;
+        cursor: pointer;
+        font-family: Verdana;
+    }
+    
+    .cl-btn-6-in:before,
+    .cl-btn-6-in:after {
+        position: absolute;
+        content: '';
+        height: 4px;
+        width: inherit;
+        background: red;
+        left: 0;
+        transition: all .3s ease-in;
+    }
+    
+    .cl-btn-6-in:before {
+        top: calc(50% - 4px);
+        transform: rotate(45deg);
+    }
+    
+    .cl-btn-6-in:after {
+        bottom: 50%;
+        transform: rotate(-45deg);
+    }
+    
+    .cl-btn-6:hover .cl-btn-6-txt {
+        opacity: 1;
+    }
+    
+    .cl-btn-6:hover .cl-btn-6-in:before,
+    .cl-btn-6:hover .cl-btn-6-in:after {
+        transform: rotate(0);
+    }
+    
+    .cl-btn-6:hover .cl-btn-6-in:before {
+        top: 0;
+    }
+    
+    .cl-btn-6:hover .cl-btn-6-in:after {
+        bottom: 0;
+    }
+    
+    .buttonfaza {
+        padding: 10px;
+        min-width: 100px;
+        font-family: inherit;
+        appearance: none;
+        border: 0;
+        border-radius: 5px;
+        background: #4676d7;
+        color: #fff;
+        padding: 8px 16px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    
+    .buttonfaza:hover {
+        background: #1d49aa;
+    }
+    
+    .buttonfaza:focus {
+        outline: none;
+        box-shadow: 0 0 0 4px #cbd6ee;
+    }
+    
+    a.active.focus,
+    a.active:focus,
+    a.focus,
+    a:active.focus,
+    a:active:focus,
+    a:focus,
+    button.active.focus,
+    button.active:focus,
+    button.focus,
+    button:active.focus,
+    button:active:focus,
+    button:focus,
+    .btn.active.focus,
+    .btn.active:focus,
+    .btn.focus,
+    .btn:active.focus,
+    .btn:active:focus,
+    .btn:focus {
+        outline: 0 !important;
+        outline-color: transparent !important;
+        outline-width: 0 !important;
+        outline-style: none !important;
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0) !important;
+    }
+    
+    .navbar-toggler:focus,
+    .navbar-toggler:active,
+    .navbar-toggler-icon:focus {
+        outline: none;
+        box-shadow: none;
+    }
+    
+    button:focus,
+    button:active,
+    button:focus,
+    .backButton:focus,
+    .backButton:active,
+    .backButton:focus {
+        outline: none;
+        box-shadow: none;
+    }
+    
+    .navbar-toggler {
+        padding: 0px;
+    }
+    
+    nav {
+        z-index: 2;
+        width: 100%;
+        background: rgb(226, 26, 26);
+        height: 70px;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.25rem;
+        padding: 0px 20px;
+        position: fixed;
+        top: 0;
+    }
+    
+    nav .title {}
+    /* /обнуление стилей */
+    
+    #app {
+        width: 100%;
+        margin-top: 70px;
+    }
+    
+    #paper {
+        transition: 0.5s;
+    }
+    
+    .block {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        border-radius: 6px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    .myfile {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+    }
+    
+    .savefile {
+        width: 150px;
+        height: 50px;
+        border-radius: 4px;
+        text-align: center;
+        cursor: pointer;
+        display: block;
+        font: 14px/50px Tahoma;
+        transition: all 0.18s ease-in-out;
+        border: 1px solid #fff;
+        color: #fff;
+        margin-bottom: 1px;
+    }
+    
+    .savefile:hover {
+        color: #28a2a2;
+    }
+    
+    .custombtn {
+        width: 150px;
+        height: 50px;
+        border-radius: 4px;
+        text-align: center;
+        cursor: pointer;
+        display: block;
+        font: 14px/50px Tahoma;
+        transition: all 0.18s ease-in-out;
+        border: 1px solid #333;
+        color: #333;
+        margin-top: 10px;
+    }
+    
+    .custombtn:hover {
+        color: #28a2a2;
+    }
+    
+    .labelstore {
+        width: 200px;
+        height: 50px;
+        border-radius: 4px;
+        text-align: center;
+        cursor: pointer;
+        display: block;
+        font: 14px/50px Tahoma;
+        transition: all 0.18s ease-in-out;
+        border: 1px solid #333;
+        color: #333;
+        margin-bottom: 0;
+    }
+    
+    .sidebar label:hover {
+        color: #28a2a2;
+    }
+    
+    .sidebar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        overflow-x: hidden;
+        overflow-y: visible;
+        height: calc(90vh - 70px);
+        /*transition-delay: 200ms;*/
+        transition-duration: 250ms ease;
+        opacity: 0;
+    }
+    
+    .openSidebar {
+        transition: 250ms ease;
+        opacity: 1;
+    }
+    
+    #sidebarContainer {
+        width: 250px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: rgb(243, 247, 246);
+        height: calc(100vh - 70px);
+        margin-top: 70px;
+        transform: translateX(-200px);
+        transition: 500ms ease;
+    }
+    
+    .sidebarAnimate {
+        transform: translateX(0px) !important;
+        transition: 500ms ease;
+    }
+    
+    #openbtn {
+        background: transparent;
+        border: none;
+        height: 25px;
+        width: 50px;
+        transition: 200ms ease;
+    }
+    
+    #openbtn:hover {
+        background-color: #C7C7C7;
+        transition: 200ms ease;
+    }
+    
+    #Sidebar1 label {
+        color: #000000;
+        cursor: default;
+        transform: translateY(-25px);
+        transition: transform 0.3s ease;
+        left: 0;
+        bottom: -15px;
+    }
+    
+    #Sidebar1 input {
+        width: 100%;
+        height: 40px;
+        font-size: 16px;
+        transition: 0.6s;
+        border: none;
+        border-bottom: 1px solid #CCC;
+        background-color: transparent;
+    }
+    
+    #Sidebar1 input:focus {
+        outline: none;
+        border-bottom: 1px solid #28a2a2;
+    }
+    /*Input Animation Styles*/
+    
+    .animation #Sidebar1.label {
+        transform: translateY(-55px);
+        font-size: 10px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    
+    .animation-color #Sidebar1.label {
+        color: #000000;
+    }
+    
+    .sidebar1 {
+        height: 100%;
+        width: 250;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background-color: rgb(243, 247, 246);
+        overflow-x: hidden;
+        transition: 0.5s;
+        /*transition-timing-function: linear;*/
+        padding-top: 60px;
+    }
+    
+    #Sidebar1 {
+        width: 250px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background-color: rgb(243, 247, 246);
+        height: 100%;
+        margin-top: 5px;
+        transform: translateX(250px);
+        transition: 500ms ease;
+    }
+    
+    .sidebar1Animate {
+        transform: translateX(0px) !important;
+        transition: 500ms ease;
+    }
+    
+    .sidebar a.closebtn {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 35px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+    
+    .sidebar a.closebtn:hover {
+        color: #f1f1f1;
+    }
+    
+    .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+    
+    .sidebar1 a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+    
+    #Sidebar1 .closebtn {
+        font-size: 30px;
+        margin-left: -32px;
+        display: flex;
+        margin-right: 10px;
+    }
+    
+    .openbtn {
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #818181;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+    }
+    
+    .openbtn:hover {
+        background-color: #444;
+    }
+    
+    #main {
+        transition: margin-left .5s;
+        padding: 0px;
+    }
+    
+    .topNav {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .eleminfo {
+        margin-top: 75px;
+        justify-content: space-around;
+        margin-left: -10px;
+    }
+    
+    .topNav span {
+        padding-left: 20px;
+        margin: 20px 0px;
+    }
+    
+    .SaveAndDownload {
+        width: 400px;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .info {
+        margin-top: -10px;
+    }
+    
+    .info h2 {
+        font-size: 1.2rem;
+    }
+    
+    .info label {
+        color: #000;
+    }
+    
+    .info input {
+        margin-bottom: 13px;
+    }
+    /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+    
+    @media screen and (max-height: 450px) {
+        .sidebar {
+            padding-top: 15px;
+        }
+        .sidebar a {
+            font-size: 18px;
+        }
+    }
+    
+    rect {
+        stroke-width: 2;
+        stroke: black;
+        /*fill: transparent;*/
+        width: 90;
+        height: 54;
+        stroke-dasharray: 0;
+    }

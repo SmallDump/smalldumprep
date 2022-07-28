@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/CSS/main.css">
+    <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+    <title>ГИС тягового электроснабжения</title>
+  </head>
+  <body>
+	<!-- As a heading -->
+	<nav class="navbar mainColor text-white">
+	  <span class="navbar-brand mb-0 h1">ГИС тягового электроснабжения</span>
+	</nav>
+
+	<section class="mapSection">
+		<div id="map"></div>
+	</section>
+
+	
+		<div class="modal fade" id="mainModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered modal-xl">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title" id="exampleModalLabel">Электростанция "Мирная"</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body columnContainer">
+		        <img src="assets/img/podstanciya_peremen_tok_27_5kb.jpg" class="photo">
+		        <div class="info">
+		        	<h4 class="infoHeader"> Информация о станции "Mирная" </h4>
+		        	<ul class="infoUl">
+		        		<li class="infoLi">
+		        			Количество сотрудников на станции: <span>145</span>
+		        		</li>
+		        		<li class="infoLi">
+		        			Максимальная мощьность: <span>200кВ</span>
+		        		</li>
+		        		<li class="infoLi">
+		        			Расчетная нагрузка на текущий момент: <span>145кВ</span>
+		        		</li>
+		        		<li class="infoLi">
+		        			Подключенных узлов: <span>5</span>
+		        		</li>
+		        	</ul>
+		        </div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn mainColor"><a href="assets/Docs/Tehnicheskij-pasport-tyagovoj-podstantsii.doc" class="text-white">Скачать паспорт станции</a></button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+	<script src="assets/JS/2gis.js"></script>
+  </body>
+</html>
