@@ -1,0 +1,148 @@
+﻿@model WebApplication1.Models.IndexCreate
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<html>
+<head>
+    <title>Главная</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body style="background-color: #f2f2f2">
+    <div class="preloader">
+        <div class="preloader__image">
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                @Html.ActionLink("Главная", "Index", "Home", new { @class = "nav-link" })
+                @Html.ActionLink("Новости", "News", "Home", new { @class = "nav-link" })
+                @Html.ActionLink("Конференции", "Conferences", "Home", new { @class = "nav-link" })
+                @Html.ActionLink("Контакты", "Register", "Home", new { @class = "nav-link" })
+                <div class="right">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" viewBox="0 -1 18 18">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                    <div class="descr2">
+                        <div class="container-search">
+                            <form class="search">
+                                <div class="row-search">
+                                    <input style=" width: 100%; height: 100%;"/>
+                                </div>
+                                <button class="btn-search">Поиск</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                    </svg>
+                    <div class="descr-login">
+                        <div class="container-login">
+                            @if (User.Identity.IsAuthenticated == false)
+                            {
+                            using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "login", enctype = "multipart/form-data" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary()
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "input-login", @placeholder = "Email" } })
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "input-login", @placeholder = "Пароль" } })
+                                <div class="btn-login">
+
+                                    <div style="width: 50%;">
+                                        <button type="submit" class="btn btn-success-login">Войти</button>
+                                    </div>
+                                    <div style="width: 50%;">
+                                        <a class="pass" style="text-decoration: none;" href="#">Забыли пароль?</a>
+                                    </div>
+                                </div>
+                                <div style="width: 100%; font-size: 11pt;">
+                                    Новый пользователь?&emsp;<a style="border-bottom: 2px solid #4879b7; text-decoration:none;" href="@Url.Action("Register", "Home")">Зарегистрируйтесь</a>
+                                </div>
+                                }
+                            }
+                            else
+                            {
+                        <p>Вы вошли как @Model.SecondName @Model.FirstName <br /> <a style="border-bottom: 2px solid #4879b7; text-decoration: none;" href="@Url.Action("Account","Account")">Личный кабинет</a> <br /> <a style="border-bottom: 2px solid #4879b7; text-decoration: none;" href="@Url.Action("Logout","Home")">Выйти</a></p>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="title">
+        Научные конференции<br />
+
+        <div class="title2">
+            Платформа нового поколения для онлайн-мероприятий.<br>
+            Запускается на всех брузерах и без дополнительного ПО.
+        </div>
+    </div>
+    <div class="title3">Ближайшие конференции</div>
+    <hr size="5" width="95%" color="#2a3183">
+    <div class="main2">
+        @{
+            int i = 0;
+            foreach (var b in Model.Conf.OrderByDescending(b => b.Id))
+            {
+                i += 1;
+                <div class="block shadow-block test">
+                    <a style="color: black; text-decoration: none;" href="@Url.Action("Confs_Page", "Home", new {id=b.Id},null)">
+                        <div class="blockA">
+                            <img src="~/Assets/@b.Img">
+                            <div class="date">@b.Date.ToString("d")</div>
+                        </div>
+                        <div class="blockB">@b.title</div>
+                    </a>
+                </div>
+                if (i == 3)
+                { break; }
+            }
+        }
+    </div>
+    <div class="title3">Последние новости</div>
+    <hr size="5" width="95%" color="#2a3183">
+
+    <div class="main2 ">
+
+        @{
+            i = 0;
+            foreach (var b in Model.News.OrderByDescending(b => b.Id))
+            {
+                i += 1;
+                <div class="block shadow-block">
+                    <a style="color: black; text-decoration: none;" href="@Url.Action("News_Page", "Home", new {id=b.Id},null)">
+                        <div class="blockA">
+                            <img src="~/Assets/@b.Img">
+                            <div class="date">@b.Date.ToString("d")</div>
+                            <div class="descr">@b.FullText</div>
+                        </div>
+                        <div class="blockB">@b.title</div>
+                    </a>
+                </div>
+                if (i == 3)
+                { break; }
+            }
+        }
+    </div>
+    <div class="copyright">Copyright <a style="color: white; text-decoration: none;" href="http://img10.reactor.cc/pics/comment/full/Making-a-cat-cry-%D1%80%D0%B0%D0%B7%D0%BD%D0%BE%D0%B5-Katia-Managan-Steam-%D1%81%D0%BA%D0%B8%D0%B4%D0%BA%D0%B8-1234529.png">&copy;</a> 2020 SamGUPS</div>
+    <script>
+        window.onload = function () {
+            document.body.classList.add('loaded_hiding');
+            window.setTimeout(function () {
+                document.body.classList.add('loaded');
+                document.body.classList.remove('loaded_hiding');
+            }, 500);
+        }
+    </script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+</body>
+</html>

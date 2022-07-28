@@ -1,0 +1,15 @@
+﻿@model IEnumerable<WebApplication1.Models.Confs>
+@{
+    ViewBag.Title = "Confs";
+}
+<h2>@Html.ActionLink("Создать конференцию","CreateConf","Admin")</h2>
+<h2>
+    @foreach (var b in Model.OrderByDescending(d=>d.Id))
+    { <div>------------------------------------------------</div>
+        <div>@b.title</div>
+        <div>@b.Date.ToString("d")</div>
+        @Html.ActionLink("Редактировать конференцию", "EditConf", "Admin", new { id = b.Id }, null)
+        <div>------------------------------------------------</div>
+    }
+</h2>
+

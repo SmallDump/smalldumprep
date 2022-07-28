@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "Редактировать новость";
+
+}
+@model WebApplication1.Models.Confs
+
+@using (Html.BeginForm("CreateConf", "Admin", FormMethod.Post))
+{
+    <fieldset>
+        @Html.HiddenFor(m => m.Id)
+        <p>
+            @Html.LabelFor(m => m.title, "Название")
+            <br />
+            @Html.TextAreaFor(m => m.title, 10, 20, null)
+
+
+
+        </p>
+        <p>
+            @Html.LabelFor(m => m.EventDateStart, "Дата начала конференции")
+            <br />
+            @Html.EditorFor(m => m.EventDateStart)
+
+
+
+        </p>
+        <p>
+            @Html.LabelFor(m => m.EventDateEnd, "Дата окончания конференции")
+            <br />
+            @Html.EditorFor(m => m.EventDateEnd)
+
+        </p>
+        <p>
+            @Html.LabelFor(m => m.EndRegistr, "Дата окончания регистрации")
+            <br />
+            @Html.EditorFor(m => m.EndRegistr)
+
+        </p>
+        <p>
+            @Html.LabelFor(m => m.EndAcceptDoklad, "Дата окончания принятия докладов")
+            <br />
+            @Html.EditorFor(m => m.EndAcceptDoklad)
+
+        </p>
+        <p>
+            @Html.LabelFor(m => m.WebSite, "Веб-сайт")
+            <br />
+            @Html.TextAreaFor(m => m.WebSite, 10, 20, null)
+
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Phone, "Телефон")
+            <br />
+            @Html.TextAreaFor(m => m.Phone, 10, 20, null)
+
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Email, "E-Mail")
+            <br />
+            @Html.TextAreaFor(m => m.Email, 10, 20, null)
+
+        </p>
+        <p>
+            @Html.LabelFor(m => m.EventPlace, "Место проведения")
+            <br />
+            @Html.TextAreaFor(m => m.EventPlace, 10, 20, null)
+
+        </p>
+        <!--<p>
+            Html.LabelFor(m => m.Organiz, "Организаторы")
+            <br />
+            Html.TextAreaFor(m => m.Organiz, 10, 20, null)
+
+        </p>-->
+
+        <p>
+            @Html.LabelFor(m => m.Date, "Дата")
+            <br />
+            @Html.EditorFor(m => m.Date)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Img, "Название изображения(Чтобы не слетело блять)")
+            <br />
+            @Html.EditorFor(m => m.Img)
+        </p>
+        
+        <p><input type="submit" value="Отправить" /></p>
+    </fieldset>
+}

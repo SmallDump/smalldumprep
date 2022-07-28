@@ -1,0 +1,73 @@
+﻿@model IEnumerable<WebApplication1.Models.Confs>
+@{
+    ViewBag.Title = "Conferences";
+}
+<html>
+<head>
+    <title>Конференции</title>
+    @Styles.Render("~/Content/css")
+</head>
+
+
+<body bgcolor="#f2f2f2">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                @Html.ActionLink("Главная", "Index", "Home", new { @class = "nav-link" })
+                @Html.ActionLink("Новости", "News", "Home", new { @class = "nav-link" })
+                @Html.ActionLink("Конференции", "Conferences", "Home", new { @class = "nav-link_active" })
+                <a class="nav-link">Контакты</a>
+
+                <a class="right">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="90%" fill="currentColor" viewBox="0 -1 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </a>
+
+                <a class="right">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                    </svg>
+                </a>
+                <div class="way">Главная&emsp;&ensp;/&ensp;&emsp;Конференции</div>
+            </div>
+
+        </div>
+    </nav>
+
+
+
+    <div class="conf-title">Конференции</div>
+    <div class="conf-link">
+        Текущие&emsp;&ensp;/&ensp;&emsp;2020 и тд
+    </div>
+
+    <div class="container_news">
+        <div class="row">
+            @foreach (var b in Model.OrderByDescending(b => b.Id))
+            {
+
+                <div class="card_news shadow-block">
+                    <a style="color: black; text-decoration: none;" href="@Url.Action("Confs_Page", "Home", new {id=b.Id},null)">
+                        <div class="blockA">
+                            <img src="~/Assets/@b.Img">
+                            <div class="date">@b.Date.ToString("d")</div>
+                        </div>
+                        <div class="blockB">@b.title</div>
+
+                    </a>
+                </div>
+
+
+
+
+            }
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "Редактировать пользователя";
+
+}
+@model AspNetIdentityApp.Models.ApplicationUser
+
+@using (Html.BeginForm("CreateUser", "Admin", FormMethod.Post))
+{
+    <fieldset>
+        @Html.HiddenFor(m => m.Id)
+        <div class="form-group">
+            <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Фамилия <span class="colortext">*</span> </label>
+            @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control", @style = "width:90%;", @id = "exampleFormControlInput1" } })
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Имя <span class="colortext">*</span> </label>
+            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @style = "width:90%;", @id = "exampleFormControlInput1" } })
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Отчество <span class="colortext">*</span> </label>
+            @Html.EditorFor(model => model.FatherName, new { htmlAttributes = new { @class = "form-control", @style = "width:90%;", @id = "exampleFormControlInput1" } })
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Страна <span class="colortext">*</span> </label>
+            @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control", @style = "width:90%;", @id = "exampleFormControlInput1" } })
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Город <span class="colortext">*</span> </label>
+            @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control", @style = "width:90%;", @id = "exampleFormControlInput1" } })
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Домашний адрес <span class="colortext">*</span> </label>
+            @Html.EditorFor(model => model.HomeAddr, new { htmlAttributes = new { @class = "form-control", @style = "width:90%;", @id = "exampleFormControlInput1" } })
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">E-mail<span class="colortext">*</span> </label>
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @style = "width:90%;", @id = "exampleFormControlInput1" } })
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Телефон <span class="colortext">*</span> </label>
+            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @style = "width:90%;", @id = "exampleFormControlInput1" } })
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Дата рождения </label>
+            @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control", @style = "width:90%;", @id = "exampleFormControlInput1" } })
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Организация <span class="colortext">*</span> </label>
+            @Html.EditorFor(model => model.OrgName, new { htmlAttributes = new { @class = "form-control", @style = "width:90%;", @id = "exampleFormControlInput1" } })
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Адрес организации <span class="colortext">*</span> </label>
+            @Html.EditorFor(model => model.OrgAddr, new { htmlAttributes = new { @class = "form-control", @style = "width:90%;", @id = "exampleFormControlInput1" } })
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Должность <span class="colortext">*</span> </label>
+            @Html.EditorFor(model => model.Post, new { htmlAttributes = new { @class = "form-control", @style = "width:90%;", @id = "exampleFormControlInput1" } })
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Ученая степень <span class="colortext">*</span> </label>
+            @Html.EditorFor(model => model.UchStep, new { htmlAttributes = new { @class = "form-control", @style = "width:90%;", @id = "exampleFormControlInput1" } })
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Ученое звание</label>
+            @Html.EditorFor(model => model.UchZvanie, new { htmlAttributes = new { @class = "form-control", @style = "width:90%;", @id = "exampleFormControlInput1" } })
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Научный руководитель</label>
+            @Html.EditorFor(model => model.Supervisor, new { htmlAttributes = new { @class = "form-control", @style = "width:90%;", @id = "exampleFormControlInput1" } })
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Роль(admin or user)</label>
+           <input type="text" id="exampleFormControlInput1" name="role" />
+        </div> 
+        <div class="form-group">
+            <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Пароль</label>
+           <input type="password" id="exampleFormControlInput1" name="password" />
+        </div>
+
+        <p><input type="submit" value="Отправить" /></p>
+    </fieldset>
+}

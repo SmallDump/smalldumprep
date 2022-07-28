@@ -1,0 +1,107 @@
+﻿@model AspNetIdentityApp.Models.RegisterModel
+<html>
+<head>
+    @Styles.Render("~/Content/css")
+    <title>Регистрация</title>
+    <style>
+        body {
+            background: linear-gradient(90deg,#0d1a5b,#4879b7);
+        }
+        .main {
+            position: absolute;
+            left: 25%;
+            top: 25%;
+            background-color: #f2f2f2;
+            height: 50%;
+            width: 50%;
+            overflow: hidden;
+        }
+
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="container" style="background-color: #ffffff;height:400px;width:700px;margin: auto; margin-top: 15%;padding-left:35px;padding-right:35px;  box-shadow: 5px 5px 7px 5px rgba(0, 0, 0, .2);">
+        <br />
+        <div class="row">
+            <div class="col">
+                <h3><b>Регистрация</b></h3>
+            </div>
+
+        </div>
+        @Html.ValidationSummary(false)
+        <div class="row">
+            <div class="col">
+                <div class="input-group">
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Имя", @style = "width: 100%;border: 0px solid #ced4da;    border-radius: 0rem; border-bottom: 1px solid black; " } })
+
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group ">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email", @style = "border: 0px solid #ced4da;    border-radius: 0rem; border-bottom: 1px solid black;" } })
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="input-group">
+                    @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control", @placeholder = "Фамилия", @style = "border: 0px solid #ced4da;    border-radius: 0rem; border-bottom: 1px solid black; " } })
+
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Пароль", @style = "border: 0px solid #ced4da;    border-radius: 0rem; border-bottom: 1px solid black;" } })
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="input-group">
+                    @Html.EditorFor(model => model.FatherName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Имя бати", @style = "border: 0px solid #ced4da;    border-radius: 0rem; border-bottom: 1px solid black; " } })
+
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group">
+                    @Html.EditorFor(model => model.PasswordConfirm, new { htmlAttributes = new { @class = "form-control", @placeholder = "Повторите пароль", @style = "border: 0px solid #ced4da;    border-radius: 0rem; border-bottom: 1px solid black; " } })
+
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-6">
+                <div class="input-group">
+                    @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control", @placeholder = "Страна", @style = "border: 0px solid #ced4da;    border-radius: 0rem; border-bottom: 1px solid black; " } })
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="input-group">
+                    @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control", @placeholder = "Днюха", @style = "border: 0px solid #ced4da;    border-radius: 0rem; border-bottom: 1px solid black; " } })
+
+                </div>
+            </div>
+
+        </div>
+        <br />
+
+        <input class="btn btn-primary rounded-0 float-right" style="background-color: #ff6e4a;box-shadow: 0.2em 0.2em 5px rgba(0,0,0,0.5);border: 0px solid #ced4da;" type="submit" value="Зарегистрироваться" />
+    </div>
+
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+    }
+</body>
+</html>

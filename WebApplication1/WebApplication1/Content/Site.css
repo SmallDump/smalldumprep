@@ -1,0 +1,549 @@
+﻿
+/*html, body {
+    font-family: Open Sans, sans-serif;
+    padding: 0;
+    margin: 0;
+}*/
+.descr1 {
+    display: none;
+    margin-left: -350px;
+    padding: 10px;
+    margin-top: 17px;
+    background: #f3f3f3;
+    height: 200px;
+    -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+}
+
+.poster:hover .descr1 {
+    display: block;
+    position: absolute;
+    top: 120px;
+    z-index: 9999;
+    width: 400px;
+}
+.test {
+    transition: 1s;
+}
+    .test:hover {
+        transform: scale(1.1);
+    }
+/*ПРАВАЯ ЧАСТЬ ШАПКИ - ПОИСК И АВТОРИЗАЦИЯ*/
+.right {
+    width: 5%;
+    color: #f2f2f2;
+    font-size: 15pt;
+    text-align: center;
+    height: 2.5em;
+    line-height: 2.5em;
+    background-color: #0D1a5b;
+    float: right;
+}
+
+    .right:hover {
+        background-color: #2a3183;
+    }
+
+        .right:hover .descr2 {
+            background-color: #2a3183;
+            display: block;
+            position: absolute;
+            z-index: 1000;
+            width: 400px;
+        }
+
+
+.descr2 {
+    display: none;
+    float: right;
+    height: 100px;
+    float: right;
+    right: 0%;
+}
+
+    
+/*НАУЧНЫЕ КОНФЕРЕНЦИИ*/
+.title {
+    color: #0D1a5b;
+    font-size: 50pt;
+    font-weight: 600;
+    margin-left: 8%;
+    margin-top: 10%;
+    
+}
+/*ТЕКСТ ПОД ЗАГОЛОВКОМ*/
+.title2 {
+    color: #0D1a5b;
+    font-weight: normal;
+    font-size: 30pt;
+}
+
+/*БЛИЖАЙШИЕ КОНФЕРЕНЦИИ*/
+.title3 {
+    width: 100%;
+    text-align: center;
+    font-size: 25pt;
+    color: #0D1a5b;
+    font-weight: 600;
+    margin-top: 10%;
+}
+
+/*РОДИТЕЛЬСКИЙ БЛОК НОВОСТНЫХ БЛОКОВ*/
+.main2 {
+    width: 84%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*ИЗОБРАЖЕНИЕ*/
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*COPYRIGHT*/
+.copyright {
+    height: 10%;
+    width: 100%;
+    background-color: #0D1a5b;
+    color: #f2f2f2;
+    font-size: 13pt;
+    text-align: center;
+    height: 6em;
+    line-height: 6em;
+    margin-top: 10%;
+}
+
+/*НОВОСТНОЙ БЛОК*/
+.block {
+    width: 380px;
+    height: 380px;
+    text-align: center;
+    background: #ffffff;
+}
+
+/*БЛОК ДЛЯ ИЗОБРАЖЕНИЯ*/
+.blockA {
+    height: 65%;
+    position: relative; 
+}
+
+/*БЛОК ДЛЯ ТЕКСТА*/
+.blockB {
+    height: 28%;
+    text-align: left;
+    padding: 10px;
+    font-weight: 900;
+}
+
+/*ДАТА*/
+.date {
+    width: 35%;
+    height: 15%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    height: 2em;
+    color: white;
+    font-weight: bold;
+    font-size: 12pt;
+    line-height: 2em;
+    background: linear-gradient(0.4turn,#ff7f00,#de6423);
+    max-width: 100%;
+}
+
+/*АНИМАЦИЯ*/
+.descr {
+    position: absolute;
+    width: 100%;
+    height: 380px;
+    top: 0;
+    background-color: white;
+    opacity: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 18;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-transition: all .50s;
+    text-overflow: ellipsis;
+    -o-transition: all .50s;
+    transition: all .50s;
+    color: black;
+    text-align: left;
+    padding: 15px;
+}
+
+.blockA:hover .descr {
+    opacity: 1;
+    top: 0;
+}
+
+/*ЗАГРУЗКА СТРАНИЦЫ*/
+.preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    background: linear-gradient(90deg, #f2f2f2 10%, #e0e0e0 90%);
+    z-index: 1001;
+}
+
+.preloader__image {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: url(https://i.gifer.com/VAyR.gif) no-repeat 50% 50%;
+}
+
+.loaded_hiding .preloader {
+    transition: 0.3s opacity;
+    opacity: 0;
+}
+
+.loaded .preloader {
+    display: none;
+}
+
+/*ИЗМЕНЕНИЕ ЦВЕТА ССЫЛОК ПРИ НАВЕДЕНИИ*/
+.blockA:hover .date {
+    opacity: 0;
+    -webkit-transition: all .50s;
+    -o-transition: all .50s;
+    transition: all .50s;
+}
+
+a.head, .right, a.nav-link_active {
+    text-decoration: none;
+}
+a.nav-link_active {
+    display: block;
+    color: #f2f2f2;
+    font-size: 15pt;
+    width: 15%;
+    text-align: center;
+    height: 2.5em;
+    line-height: 2.5em;
+    float: left;
+    background-color: #2a3183;
+}
+
+
+ /*СТРАНИЦА - "НОВОСТИ"*/
+
+.container_news {
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card_news {
+    text-align: center;
+    width: 330px;
+    height: 380px;
+    background-color: #fff;
+    margin-bottom: 3%;
+}
+
+.news_title, .conf-title {
+    display: inline-block;
+    margin-left: 15%;
+    width: 30%;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+    color: #0D1a5b;
+    font-size: 25pt;
+    font-weight: 900;
+}
+
+.conf-link {
+    margin-left: 15%;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2.5%;
+    font-size: 15pt;
+    font-weight: 900;
+    color: #2a3183;
+}
+
+
+/*АДРЕС СТРАНИЦЫ*/
+.way {
+    color: #f2f2f2;
+    font-size: 15pt;
+    width: 100%;
+    height: 2.5em;
+    line-height: 2.5em;
+    float: left;
+    padding-left: 5%;
+    background-color: #2a3183;
+}
+/*
+.container{
+    align-content: normal;
+}
+    */
+
+
+/*ТЕНЬ НА БЛОКАХ*/
+.shadow-block {
+    box-shadow: 0.4em 0.4em 10px rgba(122,122,122,0.5);
+}
+
+/*СТРАНИЦА ОТДЕЛЬНОЙ НОВОСТИ*/
+
+.news_content_main {
+    background-color: #fff;
+    width: 71%;
+    margin: 2% auto 0; 
+}
+
+.content {
+    margin: 15px;  
+}
+
+.img_left {
+    display:block;
+    float: left;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    width: 500px;
+    height: 400px;
+    max-width: 100%
+}
+
+.card_img{
+width: 100%;
+height: 60%;
+}
+
+
+.lower {
+    height: 7%;
+    width: 50%;
+    color: #696969;
+    font-weight: 500;
+}
+
+.lower_title{
+float: left;
+text-align: left;
+padding: 0 0 10px 10px;
+}
+
+.lower_date{
+float: right;
+text-align: right;
+padding: 0 10px 10px 0;
+}
+
+
+.bord{
+    border: 1px solid black;
+}
+
+
+.conf-menu-item {
+    font-size: 15pt;
+    font-weight: 400;
+    color: #fff;
+    background-color: #4879b7;
+    padding: 12px 0 12px 30px;
+    cursor: default;
+}
+  
+
+    .conf-menu-item:hover {
+        background-color: #39559d;
+    }
+
+.conf-active {
+    background-color: #39559d;
+    font-weight: 900;
+}
+
+.padding {
+    background-color: #fff;
+    width: 72%;
+    height: 100%;
+}
+
+.conf-menu {
+    width: 26.5%;
+}
+
+.parent {
+    width: 80%;
+    margin-left: 15%;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 3%;
+    padding: 0;
+}
+
+
+.content-head{
+    width: 100%;
+    height: 14%;
+}
+
+.conf-content {
+    margin: 15px 15px 15px 15px;
+    overflow: hidden;
+}
+
+.conf-head{
+color: #0d1a5b;
+font-size: 20pt;
+font-weight: 900;
+padding: 0;
+height: 50%;
+}
+
+.conf-head2{
+color: #000;
+font-size: 20pt;
+font-weight: 900;
+padding: 0;
+height: 50%;
+}
+
+.conf-img {
+    float: right;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    width: 250px;
+    height: 250px;
+    max-width: 100%;
+}
+
+.conf-text{
+margin-bottom: 0;
+}
+
+
+.conf-menu-item:active{
+   font-weight: 900;
+}
+
+.colortext{
+    color: #fc7a01;
+}
+
+.contaier-form {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+}
+
+.conf-download-btn{
+width: 30%;
+}
+
+
+
+.btn-search {
+    color: #fff;
+    background-color: #fc7a01;
+    font-weight: 400;
+    width: 20%;
+    border: none;
+    height: 100%;
+    line-height: normal;
+    text-align: center;
+}
+
+.row-search {
+    width: 80%;
+    float: left;
+  
+}
+
+.search {
+    width: 95%;
+    height: 38%;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.container-search {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+/*Модальное окно авторизации*/
+
+.descr-login {
+    display: none;
+    height: 200px;
+    float: right;
+    right: 5%;
+}
+
+.right:hover .descr-login {
+    background-color: #2a3183;
+    display: block;
+    z-index: 1000;
+    width: 400px;
+    position: absolute;
+}
+
+.container-login {
+    width: 100%;
+    height: 100%;
+}
+
+.login {
+    margin: 2.5% 5% 5% 5%;
+    width: 90%;
+    height: 90%;
+
+}
+
+.input-login{
+    width: 100%;
+    height: 20%;
+    margin-bottom: 5%;
+}
+
+.btn-success-login {
+    color: #fff;
+    float: right;
+    width: 100%;
+    height: 100%;
+    background-color: #fc7a01;
+    font-weight: 900;
+    font-size: 13pt;
+    padding-top: 1%;
+    
+}
+
+.btn-login {
+    display: flex;
+    height: 20%;
+
+}
+.pass {
+    position: relative;
+    bottom: 25%;
+    font-size: 13pt;
+}

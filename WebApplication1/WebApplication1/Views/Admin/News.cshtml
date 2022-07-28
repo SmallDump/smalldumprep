@@ -1,0 +1,14 @@
+﻿@model IEnumerable<WebApplication1.Models.Newss>
+@{
+    ViewBag.Title = "EditNews";
+}
+<h2>@Html.ActionLink("Создать новость", "CreateNews", "Admin")</h2>
+<h2>@foreach (var b in Model)
+{ 
+    <div>@b.Id</div>
+    <div>@b.title</div>
+    <div>@b.Date.ToString("d")</div>
+    @Html.ActionLink("Редактировать запись","EditNews","Admin",new { id=b.Id},null)
+    
+}</h2>
+

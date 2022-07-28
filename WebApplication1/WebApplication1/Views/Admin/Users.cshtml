@@ -1,0 +1,17 @@
+﻿@model IEnumerable<AspNetIdentityApp.Models.ApplicationUser>
+@{
+    ViewBag.Title = "User";
+}
+<h2>@Html.ActionLink("Создать пользователя", "CreateUser", "Admin")</h2>
+<h2>
+    @foreach (var b in Model)
+    {<div>------------------------------------------------</div>
+        <div>@b.UserName</div>
+        <div>@b.Year.ToString("d")</div>
+        @Html.ActionLink("Редактировать пользователя", "EditUsers", "Admin", new { id = b.Id }, null)
+        <br/>
+        @Html.ActionLink("Удалить пользователя", "DeleteUser", "Admin", new { id = b.Id }, null)
+        <div>------------------------------------------------</div>
+    }
+</h2>
+

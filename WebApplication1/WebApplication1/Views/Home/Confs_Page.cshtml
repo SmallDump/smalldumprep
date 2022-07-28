@@ -1,0 +1,209 @@
+﻿@model WebApplication1.Models.ConfView
+@{
+    ViewBag.Title = "Ыыыыы работает";
+}
+<title>@ViewBag.Title</title>
+@{
+    ViewBag.Title = "Conferences";
+}
+
+
+<html>
+<head>
+    <title>Конференции</title>
+    @Styles.Render("~/Content/css")
+</head>
+
+
+<body bgcolor="#f2f2f2">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                @Html.ActionLink("Главная", "Index", "Home", new { @class = "nav-link" })
+                @Html.ActionLink("Новости", "News", "Home", new { @class = "nav-link" })
+                @Html.ActionLink("Конференции", "Conferences", "Home", new { @class = "nav-link_active" })
+                <a class="nav-link">Контакты</a>
+
+                <a class="right">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="90%" fill="currentColor" viewBox="0 -1 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </a>
+
+                <a class="right">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                    </svg>
+                </a>
+                <div class="way">
+                    Главная&emsp;&ensp;/&ensp;&emsp;Конференции&emsp;&ensp;/&ensp;&emsp;@foreach (var b in Model.Conf)
+                    {
+                        @b.title
+                    }</div>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="conf-title">О конференции</div>
+
+
+
+    <div class="row parent">
+        <div class="conf-menu">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <div class="conf-menu-item" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Общая информация</div>
+                <div class="conf-menu-item" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Регистрация</div>
+                <div class="conf-menu-item" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Контакты</div>
+            </div>
+        </div>
+       
+           
+            <div class="padding">
+                <div class="tab-content conf-content" id="v-pills-tabContent">
+                   
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+
+                        @foreach (var b in Model.Conf)
+                        {
+                            int i = 1;
+                            <div class="content-head">
+                                <div class="conf-head">@b.title</div>
+                                <div class="conf-head2">Текст</div>
+                            </div>
+                            <hr size="3" width="100%" color="#4879b7">
+
+                                <div class="conf-text">
+                                    <img class="conf-img" src="~/Assets/@b.Img" />
+                                    <p style="padding: 0 0 30px 0; margin-bottom: 0;"><span style="color: #2a3183; font-weight: 800;">Даты проведения:</span> @b.EventDateStart - @b.EventDateEnd<br /> </p>
+                                    <p style="padding: 0 0 30px 0; margin-bottom: 0;"><span style="color: #2a3183; font-weight: 800;">Дата окончания регистрации:</span> @b.EndRegistr<br /></p>
+                                    <p style="padding: 0 0 30px 0; margin-bottom: 0;"><span style="color: #2a3183; font-weight: 800;">Дата окончания принятия докладов:</span> @b.EndAcceptDoklad<br /></p>
+                                    <p style="padding: 0 0 30px 0; margin-bottom: 0;"><span style="color: #2a3183; font-weight: 800;">Веб-Сайт:</span>@b.WebSite<br /></p>
+                                    <p style="padding: 0 0 30px 0; margin-bottom: 0;"><span style="color: #2a3183; font-weight: 800;">E-mail:</span> @b.Email<br /> </p>
+                                    <p style="padding: 0 0 30px 0; margin-bottom: 0;"><span style="color: #2a3183; font-weight: 800;">Телефон:</span> @b.Phone<br /></p>
+                                    <p style="padding: 0 0 30px 0; margin-bottom: 0;"><span style="color: #2a3183; font-weight: 800;">Место проведения:</span> @b.EventPlace<br /> </p>
+                                    <p style="padding: 0 0 30px 0; margin-bottom: 0;"><span style="color: #2a3183; font-weight: 800;">Организаторы:</span> надо доработать <br /></p>
+                                    <p style="padding: 0 0 30px 0; margin-bottom: 0;"><span style="color: #2a3183; font-weight: 800;">На конференции планируется работа следующих секций</span><br /></p>
+                                </div>
+
+
+                            foreach (var k in Model.Sections)
+                            {
+                                <p style="padding: 0; margin-bottom: 30px;">
+                                    <span style="color: #2a3183; font-weight: 800;">Секция @i</span>.  @k.SectionName
+                                </p>
+                                i++;
+                            }
+
+                        }
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                        @foreach (var b in Model.Conf)
+                        {
+                            <div class="content-head">
+                                <div class="conf-head">@b.title</div>
+                                <div class="conf-head2">Текст1</div>
+                            </div>
+                        }
+                        <hr size="3" width="100%" color="#4879b7">
+                        <p style="color: #000; font-size: 20pt; padding: 0;"><b>Регистрация на конференцию</b></p>
+                        <p style="color: #696969; font-size: 10pt; padding: 0;">Поля со звездочкой <span class="colortext">*</span> обязательны для заполнения</p>
+
+                       
+                        @using (Html.BeginForm("Confs_Page", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                    <div class="form-group">
+                        <label style="color: #696969; font-size: 10pt; padding: 0;">Форма участия</label>
+                        @Html.DropDownListFor(model => model.FormaUchast, new SelectList(new string[] { "Очная", "Заочная" }), "Форма участия", new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label style="color: #696969; font-size: 10pt; padding: 0;">
+                            Секция или заседание: <span class="colortext">*</span>
+                            <br />Разрешается использовать теги span, sup, sub
+                        </label>
+                        @Html.DropDownListFor(model => model.Section, ViewBag.Sect as SelectList, new { @class = "form-control" })
+                    </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Название доклада: <span class="colortext">*</span> </label>
+                                
+                                @Html.EditorFor(model => model.DokladName, new { htmlAttributes = new { @class = "form-control", @style = "width: 70%;", @id = "exampleFormControlInput1" } })
+                            </div>
+
+                            <p style="color: #2a3183; font-size: 15pt; padding: 0;"><b>Авторы</b></p>
+
+
+
+                            <div class="contaier-form">
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Фамилия <span class="colortext">*</span> </label>
+                                    @Html.EditorFor(model => model.SecondName, new { htmlAttributes = new { @class = "form-control", @style = "width:90%;", @id = "exampleFormControlInput1" } })
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Имя <span class="colortext">*</span> </label>
+                                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @style = "width:90%;", @id = "exampleFormControlInput1" } })
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Отчество <span class="colortext">*</span> </label>
+                                    @Html.EditorFor(model => model.FatherName, new { htmlAttributes = new { @class = "form-control", @style = "width:90%;", @id = "exampleFormControlInput1" } })
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">E-mail <span class="colortext">*</span> </label>
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @style = "width:90%;", @id = "exampleFormControlInput1" } })
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Организация <span class="colortext">*</span> </label>
+                                    @Html.EditorFor(model => model.Organiz, new { htmlAttributes = new { @class = "form-control", @style = "width:90%;", @id = "exampleFormControlInput1" } })
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Должность <span class="colortext">*</span> </label>
+                                    @Html.EditorFor(model => model.Post, new { htmlAttributes = new { @class = "form-control", @style = "width:90%;", @id = "exampleFormControlInput1" } })
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Ученая степень</label>
+                                    @Html.EditorFor(model => model.UchStepen, new { htmlAttributes = new { @class = "form-control", @style = "width:90%;", @id = "exampleFormControlInput1" } })
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1" style="color: #696969; font-size: 10pt; padding: 0;">Ученое звание</label>
+                                    @Html.EditorFor(model => model.UchZvanie, new { htmlAttributes = new { @class = "form-control", @style = "width:90%;", @id = "exampleFormControlInput1" } })
+                                </div>
+                            </div>
+                            <p style="color: #2a3183; font-size: 15pt; padding: 0;"><b>Файлы доклада</b> <span class="colortext">*</span></p>
+
+                            <div style="display: flex; justify-content: flex-start;" class="form-group">
+                                <label style="color: #696969; font-size: 13pt; text-align: left; padding: 0.2rem 0 0 0; margin-bottom: 0; width: 20%;">Загрузить:</label>
+                                <input style="width: 100%;" type="file" class="form-control-file" id="exampleFormControlFile1" name="upload">
+
+                            </div>
+                            <p style="color: #696969; font-size: 10pt; padding: 0;">
+                                Форматы файлов разрешенные для загрузки: doc, docx, dot, pdf, rtf, tex, txt, ppt, pptx, rar, zip, jpg, png, gif, mp4, webm, ogv, flv, ogg, mp3, wav
+                                <br />
+                                Максимальный размер файла, разрешенный для загрузки: 200 МБ
+                            </p>
+                            <button type="submit" class="btn btn-success">Сохранить</button>
+                        }
+                        
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">Текст3</div>
+                    </div>
+            </div>
+        
+    </div>
+
+
+
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>
+
+
+
+

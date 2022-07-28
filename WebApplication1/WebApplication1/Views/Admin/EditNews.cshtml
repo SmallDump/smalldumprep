@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Редактировать новость";
+
+}
+@model WebApplication1.Models.Newss
+
+@using (Html.BeginForm("EditNews", "Admin", FormMethod.Post))
+{
+<fieldset>
+    @Html.HiddenFor(m => m.Id)
+    <p>
+        @Html.LabelFor(m => m.title, "Название")
+        <br />
+        @Html.TextAreaFor(m => m.title, 10, 20, null)
+
+
+
+    </p>
+    <p>
+        @Html.LabelFor(m => m.FullText, "Полный текст")
+        <br />
+        @Html.TextAreaFor(m => m.FullText, 40, 100, null)
+
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Date, "Дата")
+        <br />
+        @Html.EditorFor(m => m.Date)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Img, "Название изображения(Чтобы не слетело блять)")
+        <br />
+        @Html.EditorFor(m => m.Img)
+    </p>
+    <p><input type="submit" value="Отправить" /></p>
+</fieldset>
+}
